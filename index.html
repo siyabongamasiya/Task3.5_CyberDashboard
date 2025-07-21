@@ -1,522 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus Cloud Shield-Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
-  </head>
-  <body>
-    <!--header-->
-    <header>
-      <div id="logo-mainTitle">
-        <img id="logo" src="./images/logo.png" alt="logo" />
-        <p id="main-title">Nexus Cloud Shield: System Security Dashboard</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexus Cloud Shield Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/9eb47d842f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div id="logo-mainTitle">
+      <img id="logo" src="./images/logo.png" alt="logo"/>
+      <p id="main-title">Nexus Cloud Shield: System Security Dashboard</p>
+    </div>
+    <div id="search-notif-sett">
+      <div id="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search..." />
+      </div>
+      <i class="fa-solid fa-gear"></i>
+    </div>
+  </header>
+
+  <!-- Programming & Development Section -->
+  <section>
+    <p class="section-title">Programming & Development</p>
+    <hr />
+    <div class="cards-layout">
+      <div class="card-layout">
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-title">Software Projects</p>
+          <p class="card-sub-layout-description">Ongoing development projects</p>
+          <p class="card-sub-layout-status">Active</p>
+        </div>
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-detail">5<br><span class="card-sub-layout-description">Projects</span></p>
+        </div>
       </div>
 
-      <div id="search-notif-sett">
-        <!--search-->
-        <div id="search-bar">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search..." />
-        </div>
-        <i class="fa-solid fa-gear"></i>
+      <div class="card-layout">
+        <canvas id="bandwidthChart"></canvas>
       </div>
-    </header>
 
-    <!--main content-->
-    <main>
-      <!--RECOVERY STATUS SECTION-->
-      <section id="recovery-status-section">
-        <p class="section-title">Recover Status</p>
-        <hr />
-        <!--cards layout-->
-        <div class="cards-layout">
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Disaster Recovery Process</p>
-              <p class="card-sub-layout-description">
-                Monitors disaster protocols and failure response systems
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">4hrs <br> <span class="card-sub-layout-description">Recovery Time Objective</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Boot log status:OK</p>
-              <p class="card-sub-layout-description">Recovery plan status:Updated</p>
-              <p class="card-sub-layout-description">
-                Factory restore readiness:verified
-              </p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Startup Repair</p>
-              <p class="card-sub-layout-description">
-                Tracks startup issues and system repair operations.
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Last repair: 2 days ago</p>
-              <p class="card-sub-layout-description">Issues found:0</p>
-              <p class="card-sub-layout-description">
-                Auto-repair setting:Enabled
-              </p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Automated Backup Status</p>
-              <p class="card-sub-layout-description">
-                Ensures data intergrity and availability through regular
-                backups.
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">1 hr ago <br> <span class="card-sub-layout-description">Last backup</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Cloud sync: Complete</p>
-              <p class="card-sub-layout-description">Local storage: OK</p>
-              <p class="card-sub-layout-description">
-                Retention policy: Adhered
-              </p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">System Restore Points</p>
-              <p class="card-sub-layout-description">
-                Manages system checkpoints for potential rollbacks
-              </p>
-              <p class="card-sub-layout-status">Managed</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">12 <br> <span class="card-sub-layout-description">Available points</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Oldest:30 days ago</p>
-              <p class="card-sub-layout-description">Newest:Today</p>
-            </div>
-          </div>
+      <div class="card-layout">
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-title">IoT Devices</p>
+          <p class="card-sub-layout-description">Device connection health</p>
+          <p class="card-sub-layout-status">Stable</p>
         </div>
-      </section>
-
-      <!--THREAT AND VULNERABILITY SECTION-->
-      <section id="threat-and-vulnerability-section">
-        <p class="section-title">Threat & Vulnerability</p>
-        <hr />
-        <!--cards layout-->
-        <div class="cards-layout">
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Active Threat Detections</p>
-              <p class="card-sub-layout-description">
-                Monitors and reports immediate security threats
-              </p>
-              <ul>
-                <li class="card-sub-layout-status critical">Critical</li>
-              </ul>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">3 <br> <span class="card-sub-layout-description">Threats detected</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">High severity:1</p>
-              <p class="card-sub-layout-description">Medium severity:2</p>
-              <p class="card-sub-layout-description">Last scan:Real-time</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Vulnerability Scan Results</p>
-              <p class="card-sub-layout-description">
-                Overview of identified system vulnerabilities
-              </p>
-              <p class="card-sub-layout-status">Warning</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">5 <br> <span class="card-sub-layout-description">Critical vulnerabilities</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Medium:18</p>
-              <p class="card-sub-layout-description">Low:32</p>
-              <p class="card-sub-layout-description">Last scan:24 hrs ago</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Malware Protection Status</p>
-              <p class="card-sub-layout-description">
-                Ensures active malware defense across all endpoints
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">Enabled <br> <span class="card-sub-layout-description">Protection</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">
-                Virus definitions:Up to date
-              </p>
-              <p class="card-sub-layout-description">Real-time scan:Running</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Phishing Attack Attemps</p>
-              <p class="card-sub-layout-description">
-                Tracks and blocks malicious email and web-based phishing attemps
-              </p>
-              <p class="card-sub-layout-status">Monitored</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">187 <br> <span class="card-sub-layout-description">Blocked attempts</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Last 24 hrs:12</p>
-              <p class="card-sub-layout-description">Reported:0</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">
-                Intrusion Detection System(IDS)
-              </p>
-              <p class="card-sub-layout-description">
-                Monitors network traffic for suspicious activity and policy
-                violations.
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">7 <br> <span class="card-sub-layout-description">Alerts in 24h</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Blocked IPs:5</p>
-              <p class="card-sub-layout-description">Rules updated:Hourly</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Firewall Activity Log</p>
-              <p class="card-sub-layout-description">
-                Summarizes network firewall blocks and allowed connections.
-              </p>
-              <p class="card-sub-layout-status">Logging</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">2,104 <br> <span class="card-sub-layout-description">Blocked connections</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Last hour:55</p>
-              <p class="card-sub-layout-description">Rulesets:Optimal</p>
-            </div>
-          </div>
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-detail">9<br><span class="card-sub-layout-description">Connected</span></p>
         </div>
-      </section>
-
-      <!--ACCESS AND IDENTITY MANAGEMENT SECTION-->
-      <section class="access-and-identity-management-section">
-        <p class="section-title">Access & Identity Management</p>
-        <hr />
-        <!--cards layout-->
-        <div class="cards-layout">
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Failed Login Attempts</p>
-              <p class="card-sub-layout-description">
-                Monitors and alerts on suspicious login failures.
-              </p>
-              <p class="card-sub-layout-status">Alerting</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">23 <br> <span class="card-sub-layout-description">Failed attempts</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Users locked:2</p>
-              <p class="card-sub-layout-description">Source IPs flagged:3</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Privileged Access Review</p>
-              <p class="card-sub-layout-description">
-                Ensures regular review of high-level user access permissions.
-              </p>
-              <p class="card-sub-layout-status">Up-to-Date</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">7 days ago <br> <span class="card-sub-layout-description">Last review</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Upcoming review:jan 15</p>
-              <p class="card-sub-layout-description">Policies:Enforced</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">User Account Activity</p>
-              <p class="card-sub-layout-description">
-                Overview of active and inactive user accounts.
-              </p>
-            </div>
-            <canvas id="barChart" width="400" height="200"></canvas>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">MFA Enforcement</p>
-              <p class="card-sub-layout-description">
-                Status of Multi-Factor Authentication across all user accounts.
-              </p>
-              <p class="card-sub-layout-status">Enforced</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">98% <br> <span class="card-sub-layout-description">MFA enabled.</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Mandatory users:All</p>
-              <p class="card-sub-layout-description">Exceptions:0</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--NETWORK SECURITY SECTION-->
-      <section id="network-security-section">
-        <p class="section-title">Network Security</p>
-        <hr />
-        <!--cards layout-->
-        <div class="cards-layout">
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Network Traffic Overview</p>
-              <p class="card-sub-layout-description">
-                Real-time monitoring of network bandwidth and data flow.
-              </p>
-            </div>
-            <canvas id="bandwidth" width="400" height="200"></canvas>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">DDos Protection Status</p>
-              <p class="card-sub-layout-description">
-                Status of Distributed Denial of Service attack protection
-                systems.
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">Active <br> <span class="card-sub-layout-description">Protection</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Last attack:30 days ago</p>
-              <p class="card-sub-layout-description">Mitigated:Yes</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">VPN COnnection Health</p>
-              <p class="card-sub-layout-description">
-                Monitors health and availability of secure VPN tunnels.
-              </p>
-              <p class="card-sub-layout-status">Healthy</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">45 <br> <span class="card-sub-layout-description">Active connections</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Latency:Low</p>
-              <p class="card-sub-layout-description">Uptime:99.9%</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Unusual Port scans</p>
-              <p class="card-sub-layout-description">
-                Detects and logs Unusual port scanning activities on the
-                network.
-              </p>
-              <p class="card-sub-layout-status">Detected</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">8 <br> <span class="card-sub-layout-description">Scans detected</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Blocked sources:4</p>
-              <p class="card-sub-layout-description">Alert level:Medium</p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">Network Intrusion Prevention</p>
-              <p class="card-sub-layout-description">
-                Actively blocks malicious network traffic and attacks.
-              </p>
-              <p class="card-sub-layout-status">Active</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">1,203 <br> <span class="card-sub-layout-description">Blocked Intrusions</span></p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Last 24 hrs:50</p>
-              <p class="card-sub-layout-description">
-                Policy enforcement:Strict
-              </p>
-            </div>
-          </div>
-
-          <!--card layout-->
-          <div class="card-layout">
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-title">DNS Security Status</p>
-              <p class="card-sub-layout-description">
-                Protects against DNS-based threats like spoofing and hijacking.
-              </p>
-              <p class="card-sub-layout-status">Secured</p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-detail">897 <br> <span class="card-sub-layout-description">DNS queries blocked.</span></p>
-            </p>
-            </div>
-            <!--card-sub-layout-->
-            <div class="card-sub-layout">
-              <p class="card-sub-layout-description">
-                Malicious domains:Prevented
-              </p>
-              <p class="card-sub-layout-description">Last update:Hourly</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!--footer-->
-    <footer>
-      <p id="copyright">@ 2023 Nexus CLoud Shield.All rights reserved.</p>
-      <div id="social-media-icons">
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-brands fa-linkedin"></i>
       </div>
-    </footer>
-    <script
-      src="https://kit.fontawesome.com/9eb47d842f.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./script.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <!-- Recovery Section -->
+  <section>
+    <p class="section-title">Recovery</p>
+    <hr />
+    <div class="cards-layout">
+      <div class="card-layout">
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-title">Disaster Recovery</p>
+          <p class="card-sub-layout-description">System recovery readiness</p>
+          <p class="card-sub-layout-status">Ready</p>
+        </div>
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-detail">4hrs<br><span class="card-sub-layout-description">RTO</span></p>
+        </div>
+      </div>
+
+      <div class="card-layout">
+        <canvas id="usersChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section>
+    <p class="section-title">Security Fundamentals</p>
+    <hr />
+    <div class="cards-layout">
+      <div class="card-layout">
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-title">Access Control</p>
+          <p class="card-sub-layout-description">User login & policies</p>
+          <p class="card-sub-layout-status">Secured</p>
+        </div>
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-detail">98%<br><span class="card-sub-layout-description">MFA</span></p>
+        </div>
+      </div>
+
+      <div class="card-layout">
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-title">Firewall Status</p>
+          <p class="card-sub-layout-description">Network perimeter defense</p>
+          <p class="card-sub-layout-status critical">Alert</p>
+        </div>
+        <div class="card-sub-layout">
+          <p class="card-sub-layout-detail">3<br><span class="card-sub-layout-description">Incidents</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>@ 2025 Nexus Cloud Shield</p>
+    <div id="social-media-icons">
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-github"></i>
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
