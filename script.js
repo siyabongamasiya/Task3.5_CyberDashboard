@@ -27,7 +27,7 @@ const barCtx = document.getElementById('barChart').getContext('2d');
     new Chart(barCtx, {
       type: 'bar',
       data: {
-        labels: ['Inactive users', 'New users'],
+        labels: ['Inactive users', 'Active users'],
         datasets: [{
           label: 'Users',
           data: [12, 19, 3, 5, 9],
