@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nexus Cloud Shield-Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
@@ -102,7 +104,7 @@
             </div>
             <!--card-sub-layout-->
             <div class="card-sub-layout">
-              <p class="card-sub-layout-description">Cloud sync: COmplete</p>
+              <p class="card-sub-layout-description">Cloud sync: Complete</p>
               <p class="card-sub-layout-description">Local storage: OK</p>
               <p class="card-sub-layout-description">
                 Retention policy: Adhered
@@ -341,7 +343,7 @@
                 statuses.
               </p>
             </div>
-            <div>histogram</div>
+            <canvas id="barChart" width="400" height="200"></canvas>
           </div>
 
           <!--card layout-->
@@ -383,7 +385,7 @@
                 Real-time monitoring of network bandwidth and data flow.
               </p>
             </div>
-            <div>linear graph</div>
+            <canvas id="bandwidth" width="400" height="200"></canvas>
           </div>
 
           <!--card layout-->
@@ -516,38 +518,6 @@
       src="https://kit.fontawesome.com/9eb47d842f.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
-
-<!-- 
-<i class="fa-solid fa-bell"></i>
-<i class="fa-solid fa-magnifying-glass"></i>
-<i class="fa-solid fa-gear"></i>
-<i class="fa-brands fa-twitter"></i>
-<i class="fa-brands fa-github"></i>
-<i class="fa-brands fa-linkedin"></i>
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #f1f1f1;
-  padding: 10px 15px;
-  border-radius: 30px;
-  max-width: 300px;
-  width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar i {
-  margin-right: 10px;
-  color: #555;
-}
-
-.search-bar input {
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 16px;
-  width: 100%;
-}
- -->
