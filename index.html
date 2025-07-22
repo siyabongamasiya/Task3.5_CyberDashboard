@@ -10,113 +10,128 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <div id="logo-mainTitle">
-      <img id="logo" src="./images/logo.png" alt="logo"/>
-      <p id="main-title">Nexus Cloud Shield: System Security Dashboard</p>
-    </div>
-    <div id="search-notif-sett">
-      <div id="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search..." />
-      </div>
-      <i class="fa-solid fa-gear"></i>
-    </div>
-  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">☁️ NCS</div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Recovery</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-  <!-- Programming & Development Section -->
-  <section>
-    <p class="section-title">Programming & Development</p>
-    <hr />
-    <div class="cards-layout">
-      <div class="card-layout">
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-title">Software Projects</p>
-          <p class="card-sub-layout-description">Ongoing development projects</p>
-          <p class="card-sub-layout-status">Active</p>
-        </div>
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-detail">5<br><span class="card-sub-layout-description">Projects</span></p>
-        </div>
+  <div class="main-content">
+    <header>
+      <button id="toggleSidebar" class="menu-btn"><i class="fa fa-bars"></i></button>
+      <div id="logo-mainTitle">
+        <img id="logo" src="./images/logo.png" alt="logo"/>
+        <p id="main-title">Nexus Cloud Shield: System Security Dashboard</p>
       </div>
-
-      <div class="card-layout">
-        <canvas id="bandwidthChart"></canvas>
+      <div id="search-notif-sett">
+        <div id="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search..." />
+        </div>
+        <i class="fa-solid fa-gear"></i>
       </div>
+    </header>
 
-      <div class="card-layout">
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-title">IoT Devices</p>
-          <p class="card-sub-layout-description">Device connection health</p>
-          <p class="card-sub-layout-status">Stable</p>
+    <!-- Programming & Development Section -->
+    <section>
+      <p class="section-title">Programming & Development</p>
+      <hr />
+      <div class="cards-layout">
+        <div class="card-layout">
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-title">Software Projects</p>
+            <p class="card-sub-layout-description">Ongoing development projects</p>
+            <p class="card-sub-layout-status">Active</p>
+          </div>
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-detail">5<br><span class="card-sub-layout-description">Projects</span></p>
+          </div>
         </div>
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-detail">9<br><span class="card-sub-layout-description">Connected</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Recovery Section -->
-  <section>
-    <p class="section-title">Recovery</p>
-    <hr />
-    <div class="cards-layout">
-      <div class="card-layout">
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-title">Disaster Recovery</p>
-          <p class="card-sub-layout-description">System recovery readiness</p>
-          <p class="card-sub-layout-status">Ready</p>
+        <div class="card-layout">
+          <canvas id="bandwidthChart"></canvas>
         </div>
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-detail">4hrs<br><span class="card-sub-layout-description">RTO</span></p>
+
+        <div class="card-layout">
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-title">IoT Devices</p>
+            <p class="card-sub-layout-description">Device connection health</p>
+            <p class="card-sub-layout-status">Stable</p>
+          </div>
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-detail">9<br><span class="card-sub-layout-description">Connected</span></p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card-layout">
-        <canvas id="usersChart"></canvas>
-      </div>
-    </div>
-  </section>
+    <!-- Recovery Section -->
+    <section>
+      <p class="section-title">Recovery</p>
+      <hr />
+      <div class="cards-layout">
+        <div class="card-layout">
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-title">Disaster Recovery</p>
+            <p class="card-sub-layout-description">System recovery readiness</p>
+            <p class="card-sub-layout-status">Ready</p>
+          </div>
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-detail">4hrs<br><span class="card-sub-layout-description">RTO</span></p>
+          </div>
+        </div>
 
-  <!-- Security Section -->
-  <section>
-    <p class="section-title">Security Fundamentals</p>
-    <hr />
-    <div class="cards-layout">
-      <div class="card-layout">
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-title">Access Control</p>
-          <p class="card-sub-layout-description">User login & policies</p>
-          <p class="card-sub-layout-status">Secured</p>
-        </div>
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-detail">98%<br><span class="card-sub-layout-description">MFA</span></p>
-        </div>
-      </div>
-
-      <div class="card-layout">
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-title">Firewall Status</p>
-          <p class="card-sub-layout-description">Network perimeter defense</p>
-          <p class="card-sub-layout-status critical">Alert</p>
-        </div>
-        <div class="card-sub-layout">
-          <p class="card-sub-layout-detail">3<br><span class="card-sub-layout-description">Incidents</span></p>
+        <div class="card-layout">
+          <canvas id="usersChart"></canvas>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p>@ 2025 Nexus Cloud Shield</p>
-    <div id="social-media-icons">
-      <i class="fa-brands fa-twitter"></i>
-      <i class="fa-brands fa-github"></i>
-      <i class="fa-brands fa-linkedin"></i>
-    </div>
-  </footer>
+    <!-- Security Section -->
+    <section>
+      <p class="section-title">Security Fundamentals</p>
+      <hr />
+      <div class="cards-layout">
+        <div class="card-layout">
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-title">Access Control</p>
+            <p class="card-sub-layout-description">User login & policies</p>
+            <p class="card-sub-layout-status">Secured</p>
+          </div>
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-detail">98%<br><span class="card-sub-layout-description">MFA</span></p>
+          </div>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="card-layout">
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-title">Firewall Status</p>
+            <p class="card-sub-layout-description">Network perimeter defense</p>
+            <p class="card-sub-layout-status critical">Alert</p>
+          </div>
+          <div class="card-sub-layout">
+            <p class="card-sub-layout-detail">3<br><span class="card-sub-layout-description">Incidents</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>@ 2025 Nexus Cloud Shield</p>
+      <div id="social-media-icons">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>

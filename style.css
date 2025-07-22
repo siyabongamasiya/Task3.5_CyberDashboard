@@ -262,4 +262,87 @@
       gap: 5px;
     }
   }
+
+  .sidebar {
+    background-color: #111;
+    color: white;
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--card-detail-sectionTitle-color);
+    margin-bottom: 30px;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .sidebar nav ul li a:hover {
+    color: var(--card-detail-sectionTitle-color);
+  }
+  
+  .main-content {
+    margin-left: 220px;
+    transition: margin-left 0.3s ease;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .sidebar.collapsed + .main-content {
+    margin-left: 0;
+  }
+  
+  .menu-btn {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: block;
+    }
+  
+    .sidebar {
+      transform: translateX(-100%);
+    }
+  
+    .sidebar.collapsed {
+      transform: translateX(0);
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  
   
